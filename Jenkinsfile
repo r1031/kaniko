@@ -10,13 +10,8 @@ pipeline{
     }
     stage("build"){
       script {
-        // run Kaniko to build and push the docker image
-        sh '''
-                    docker run --rm -v $(pwd):/workspace \
-                    -v /path/to/.docker/config.json:/kaniko/.docker/config.json:ro \
-                    gcr.io/kaniko-project/executor:latest \
-                    --dockerfile /workspace/Dockerfile \
-                    --context /workspace \
+        // build and push the docker image
+        def image = docker.build("kaniko:latest")
     }
   }
 }
