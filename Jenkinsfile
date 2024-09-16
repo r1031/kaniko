@@ -1,9 +1,9 @@
 pipeline{
-  agen only
+  agent only
   stages{
     stage("build"){
       steps{
-        echo "building the application..."
+        echo 'building the application...'
       }
     }
   }
